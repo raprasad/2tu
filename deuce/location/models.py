@@ -17,7 +17,7 @@ class Location(models.Model):
     name = models.CharField(max_length=255, )
     latitude = models.DecimalField(max_digits=12, decimal_places=8)
     longitude = models.DecimalField(max_digits=12, decimal_places=8)
-    altitude = models.DecimalField(max_digits=12, decimal_places=2, help_text='in meters')
+    altitude = models.DecimalField(max_digits=12, decimal_places=2, help_text='in meters', default=0)
 
     slug = models.SlugField(blank=True)
     visible = models.BooleanField(default=True)

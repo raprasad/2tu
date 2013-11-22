@@ -11,6 +11,6 @@ admin.site.register(Building, BuildingAdmin)
 class LocationAdmin(admin.ModelAdmin):
     save_on_top = True
     search_fields = ('building__name', 'name', 'user__last_name', 'user__first_name',)    
-    list_display = ('building', 'name', 'visible', 'latitude', 'longitude', 'altitude')
+    list_display = ('name','building',  'visible', 'latitude', 'longitude', 'altitude')
     list_filter = ('building',)
 admin.site.register(Location, LocationAdmin)
