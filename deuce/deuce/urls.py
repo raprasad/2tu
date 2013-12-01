@@ -4,7 +4,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'deuce.views.home', name='home'),
+    url(r'^$', 'location.views.view_location_list'),
     # url(r'^deuce/', include('deuce.foo.urls')),
     url(r'^deuce/$', 'location.views.view_location_list'),
     #url(r'^deuce/(?P<location_id>\d+)/$', 'location.views.detail'),
