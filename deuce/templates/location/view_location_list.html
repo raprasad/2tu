@@ -1,8 +1,33 @@
 {% extends "base.html" %}
 {% block main_content %}
-    {% for l in locations %}
-     <p class="lead">{{ l }}</p>
-    {% empty %}
-    <h2>blah</h2>
-    {% endfor %}
+    <table class="table table-striped">
+      <thead>
+	<th>Name</th>
+	<th>Building</th>
+	<th>Lat/Lon</th>
+	<th>Average Rating</th>
+      </thead>
+      <tbody>	  
+        {% for l in locations %}
+	  <!-- this might be a problem with the "empty" block folling this for loop -->
+	  {% if l.visible %}
+        <tr>
+	  <!-- Do we want to link to a detail page here, or do we want to load the entire app on one page and load the 
+	       detail page via ajax? Hmmm... -->
+	  <td><a href="#">{{ l.name }}</a></td>
+	  <td>{{ l.building }}</td>
+	  <td>{{ l.latitude }}, {{ l.longitude }}</td>
+	  <td> 
+	       <!-- just a placeholder for now.  Not sure if we want to use transparent icons and have a colorized 
+		    background that is x% of the width of the stars -->
+	       <span class="glyphicon glyphicon-star" style="color: #ee0;"></span>
+	       <span class="glyphicon glyphicon-star" style="color: #ee0;"></span>
+	       <span class="glyphicon glyphicon-star" style="color: #ee0;"></span>
+	       <span class="glyphicon glyphicon-star-empty" style="color: #ccc;"></span>
+          </td>
+        </tr>
+          {% endif %}
+        {% empty %}
+        <tr><td colspan="4">No Locations</td></tr>
+        {% endfor %}
 {% endblock %}
